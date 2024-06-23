@@ -1,7 +1,5 @@
-const urlConsultaMovimentacao=`http://${servidor}:8081/integracao/movimentacao/consulta
-`
-const urlCadastroCliente = `http://${servidor}:8081/integracao/cliente/insertOrUpdate
-`
+const urlConsultaMovimentacao=`http://${servidor}:8081/integracao/movimentacao/consulta`
+
 
 var token = "";
 
@@ -64,7 +62,6 @@ function testeAutenticacao() {
     let senha = document.getElementById('senha').value
     let servidor = document.getElementById('servidor').value
     let urlAutenticacao=`http://${servidor}:8081/integracao/auth`
-    urlAutenticacao = 'http://localhost:3001/autenticacao'
     let autenticacao = {
         "auth": {
             "usuario":usuario,
@@ -96,6 +93,7 @@ function testeAutenticacao() {
 }
 
 function testeCadastroCliente() {
+    const urlCadastroCliente = `http://${servidor}:8081/integracao/cliente/insertOrUpdate`
     let resultados = document.getElementById('resultados')
     let dadosCliente = {
         "dto":{
@@ -127,7 +125,7 @@ function testeCadastroCliente() {
         }
     }
     let url = 'http://localhost:3001/cadastroCliente'
-    fetch(url, {
+    fetch(urlCadastroCliente, {
         method: "POST",
         headers: {
             "Content-Type":"application/json",

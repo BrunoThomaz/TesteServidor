@@ -93,14 +93,14 @@ function testeAutenticacao() {
                 body:JSON>stringify(json)
             })
         })
-        .catch(err => {
-            resultados.textContent += `\nERRO:\n${err}\n\n`
+        .catch(error => {
+            resultados.textContent += `\nERRO:\n${error}\n\n`
             fetch('/resposta',{
                 headers:{
                     "Content-Type":"application/json"
                 },
                 method:"POST",
-                body:JSON>stringify(json)
+                body:JSON>stringify(error)
             })
         })
 }
@@ -147,9 +147,9 @@ function testeCadastroCliente() {
         body: JSON.stringify(dadosCliente)
     })
         .then(response => response.json())
-        .then(data => {
-            console.log(data)
-            resultados.textContent += '\nTeste de Cadastro de cliente:\n' + JSON.stringify(data);
+        .then(json => {
+            console.log(json)
+            resultados.textContent += '\nTeste de Cadastro de cliente:\n' + JSON.stringify(json);
             fetch('/resposta',{
                 headers:{
                     "Content-Type":"application/json"
@@ -165,7 +165,7 @@ function testeCadastroCliente() {
                 "Content-Type":"application/json"
             },
             method:"POST",
-            body:JSON>stringify(json)
+            body:JSON>stringify(error)
         })
         });
 }

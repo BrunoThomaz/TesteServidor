@@ -100,7 +100,7 @@ function testeAutenticacao() {
                     "Content-Type":"application/json"
                 },
                 method:"POST",
-                body:JSON>stringify(error)
+                body:JSON.stringify(error)
             })
         })
 }
@@ -155,7 +155,7 @@ function testeCadastroCliente() {
                     "Content-Type":"application/json"
                 },
                 method:"POST",
-                body:JSON>stringify(json)
+                body:JSON.stringify(json)
             })
         })
         .catch(error => {
@@ -165,7 +165,7 @@ function testeCadastroCliente() {
                 "Content-Type":"application/json"
             },
             method:"POST",
-            body:JSON>stringify(error)
+            body:JSON.stringify(error)
         })
         });
 }

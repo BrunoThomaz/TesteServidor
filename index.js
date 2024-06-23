@@ -27,6 +27,7 @@ app.post('/resposta', (req,res) => {
             // file written successfully
         }
         });
+    res.send('success')
 })
 
 

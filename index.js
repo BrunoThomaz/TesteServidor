@@ -19,7 +19,7 @@ app.get('/teste-servidor', (req,res)=>{
     res.redirect('/testeServidor.html');
 })
 
-app.post('/autenticacao', (req,res) => {
+app.post('/resposta', (req,res) => {
     fs.writeFile(path.join(__dirname, 'log.json'), JSON.stringify(req.body), {flag:'a'}, err => {
         if (err) {
             console.error(err);
@@ -27,22 +27,6 @@ app.post('/autenticacao', (req,res) => {
             // file written successfully
         }
         });
-    if (req.body.auth.usuario && req.body.auth.senha) {
-        res.send(JSON.stringify({"token":"omelhortokendedotos"}))
-    }
-    console.log(req.body)
-})
-
-app.post('/cadastroCliente', (req,res) => {
-    fs.writeFile(path.join(__dirname, 'log.json'), JSON.stringify(req.body), {flag:'a'}, err => {
-        if (err) {
-            console.error(err);
-        } else {
-            // file written successfully
-        }
-        });
-    console.log(req.body)
-    res.send(req.body)
 })
 
 

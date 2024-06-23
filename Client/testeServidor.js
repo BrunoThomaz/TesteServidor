@@ -85,10 +85,23 @@ function testeAutenticacao() {
                 resultados.textContent += `\nTeste de autenticação usuário/senha com erro.`
             }
             if (json.token) token = json.token
-            console.log(token);
+            fetch('/resposta',{
+                headers:{
+                    "Content-Type":"application/json"
+                },
+                method:"POST",
+                body:JSON>stringify(json)
+            })
         })
         .catch(err => {
             resultados.textContent += `\nERRO:\n${err}\n\n`
+            fetch('/resposta',{
+                headers:{
+                    "Content-Type":"application/json"
+                },
+                method:"POST",
+                body:JSON>stringify(json)
+            })
         })
 }
 
@@ -137,8 +150,22 @@ function testeCadastroCliente() {
         .then(data => {
             console.log(data)
             resultados.textContent += '\nTeste de Cadastro de cliente:\n' + JSON.stringify(data);
+            fetch('/resposta',{
+                headers:{
+                    "Content-Type":"application/json"
+                },
+                method:"POST",
+                body:JSON>stringify(json)
+            })
         })
         .catch(error => {
         // trate erros de requisição
+        fetch('/resposta',{
+            headers:{
+                "Content-Type":"application/json"
+            },
+            method:"POST",
+            body:JSON>stringify(json)
+        })
         });
 }

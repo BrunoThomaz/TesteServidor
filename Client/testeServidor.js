@@ -68,6 +68,18 @@ function testeAutenticacao() {
             "senha":senha
         }
     };
+    let json = {
+        "Teste":"Autenticação",
+        autenticacao,
+        url:urlAutenticacao,
+    }
+    fetch('/resposta',{
+        headers:{
+            "Content-Type":"application/json"
+        },
+        method:"POST",
+        body:JSON.stringify(json)
+    })
 
     fetch(urlAutenticacao, {
         headers:{
@@ -90,7 +102,7 @@ function testeAutenticacao() {
                     "Content-Type":"application/json"
                 },
                 method:"POST",
-                body:JSON>stringify(json)
+                body:JSON.stringify(json)
             })
         })
         .catch(error => {
@@ -106,6 +118,7 @@ function testeAutenticacao() {
 }
 
 function testeCadastroCliente() {
+    const servidor = document.getElementById('servidor').value
     const urlCadastroCliente = `http://${servidor}:8081/integracao/cliente/insertOrUpdate`
     let resultados = document.getElementById('resultados')
     let dadosCliente = {
@@ -137,7 +150,20 @@ function testeCadastroCliente() {
             ]
         }
     }
-    let url = 'http://localhost:3001/cadastroCliente'
+
+    let json = {
+        "Teste":"Cadastro Cliente",
+        "Dados enviados": dadosCliente,
+        url:urlCadastroCliente,
+    }
+    fetch('/resposta',{
+        headers:{
+            "Content-Type":"application/json"
+        },
+        method:"POST",
+        body:JSON.stringify(json)
+    })
+
     fetch(urlCadastroCliente, {
         method: "POST",
         headers: {

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>10% de DESCONTO na próxima compra!</title>
+    <script src="cliente.js" defer></script>
+    <script src="userInformation.js" defer></script>
+</head>
+<body>
+    <div class="image">
+        <img src="./img/logo insta.jpg" alt="Logotipo Atacarejo da Beleza, um contorno de uma borboleta rosa.">
+    </div>
+    <form action="/dados-cliente" method="post">
+        <div class="tab">
+            <h3>Falta pouco para o seu 10% de desconto!</h3>
+            <fieldset>
+                <label for="nome">Qual seu nome?</label>
+                <input type="text" name="nome" id="nome" onkeyup="validateForm(event)">
+            </fieldset>
+            <fieldset>
+                <label for="telefone">Telefone</label>
+                <input type="tel" name="telefone" id="telefone" maxlength="15" onkeyup="validaTelefone(event)">
+            </fieldset>
+            <button onclick="nextTab(event)">Próximo</button>
+        </div>
+        <div class="tab">
+            <h3> <span id="PrimeiroNome"></span>, mais alguns dados, e pegue seu desconto!</h3>
+            <fieldset>
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email"onkeyup="validateForm(event)">
+            </fieldset>
+            <fieldset>
+                <label for="cpf-cnpj">CPF/CNPJ</label>
+                <input type="text" name="cpf-cnpj" id="cpf-cnpj" onkeyup="validaCPFCNPJ(event)">
+            </fieldset>
+            <fieldset>
+                <label for="endereco">Endereço</label>
+                <input type="text" name="endereco" id="endereco" onkeyup="validateForm(event)">
+            </fieldset>
+            <button onclick="validaSubmit(event)">Quero meus 10% de DESCONTO agora!</button>
+        </div>
+        <!-- Circles which indicates the steps of the form: -->
+        <div style="text-align:center;margin-top:40px;">
+            <span class="step"></span>
+            <span class="step"></span>
+        </div>
+    </form>
+
+    <div id="information"></div>
+</body>
+</html>
